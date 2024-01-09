@@ -1,0 +1,94 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakat Receipt Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #cf14c6;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Watermark style */
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: #aaa;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datetime</th>
+                <th>User id</th>
+                <th>Muzakki id</th>
+                <th>Keterangan</th>
+                <th>Nonota</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="zakatTableBody">
+            <!-- Existing rows will be displayed here -->
+        </tbody>
+    </table>
+
+    <form id="zakatForm" onsubmit="submitForm(event)">
+        <label for="datetime">Datetime:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+
+        <label for="muzakkiId">Muzakki ID:</label>
+        <input type="text" id="muzakkiId" name="muzakkiId" required>
+
+        <label for="keterangan">Keterangan:</label>
+        <input type="text" id="keterangan" name="keterangan" required>
+
+        <label for="nonota">Nonota:</label>
+        <input type="text" id="nonota" name="nonota" required>
+
+        <!-- Input hidden untuk menyimpan ID baris -->
+        <input type="hidden" id="rowId" name="rowId">
+
+        <!-- Tombol Tambahkan/Ubah Baris dan Batal -->
+        <button type="submit">Tambahkan/Ubah Baris</button>
+        <button type="button" onclick="clearForm()">Batal</button>
+    </form>
+
+    <div class="watermark">
+        Muhammad Rayhan Berliano<br>
+        43A87005210043<br>
+        D3/TK/05/A/M
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
